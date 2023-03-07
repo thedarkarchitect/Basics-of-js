@@ -37,7 +37,7 @@ function keypressed(button){
                 kick.play();
                 break;
 
-                default: console.log(key)
+                default: console.log(button);
         }
 }
 
@@ -47,11 +47,26 @@ for (var i = 0; i< clicked.length; i++){
         buttonInnerHTML = this.innerHTML;//this gets the event clicked on and returns it's inner html
 
         keypressed(buttonInnerHTML);
+        buttonAnimation(buttonInnerHTML);
     });
 }
 
 //for keyboard
 document.addEventListener("keydown", function(event){
     keypressed(event.key);
+    buttonAnimation(event.key);
     //.key is an attribute of the event which holds the string of they keyboard event becasuse the event is a json of the event .
 })
+
+function buttonAnimation(currentKey){
+    var activeButton = document.querySelector("."+currentKey);
+
+    //adding class to html element 
+    activeButton.classList.add("pressed");
+
+    //this will allow the original state of button to return and remove animation
+    setTimeout(function(){
+        //removing class to html element 
+        activeButton.classList.remove("pressed");//this action that should be timed
+    }, 100);
+}
