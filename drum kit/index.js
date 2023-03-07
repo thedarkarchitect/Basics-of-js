@@ -53,5 +53,5 @@ for (var i = 0; i< clicked.length; i++){
 //for keyboard
 document.addEventListener("keydown", function(event){
     keypressed(event.key);
-    //.key is a keyword to let the function know is receiving the event as a key action not a string
+    //.key is an attribute of the event which holds the string of they keyboard event becasuse the event is a json of the event .
 })
